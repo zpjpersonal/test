@@ -1,0 +1,7 @@
+	@Arguments({"id"})
+	@Sql("SELECT count(id) from video_history where userId = :id  ")
+	Integer findHistoryTotal(String id);
+	
+	@Arguments({"id","rows","page"})
+	@Sql("SELECT * from video_collection where userId = :id  ORDER BY createDate DESC")
+	List<VideoCollectionEntity> findCollectionList(String id, Integer rows, Integer page);
